@@ -6,8 +6,10 @@ import javax.swing.JDialog;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class ConfigurarCantidadOptima extends JDialog {
+public class ConfigurarCantidadOptima extends JDialog implements ActionListener {
 	private JLabel lblCantidadOptima;
 	private JTextField txtCantidadOptima;
 	private JButton btnAceptar;
@@ -43,18 +45,37 @@ public class ConfigurarCantidadOptima extends JDialog {
 		lblCantidadOptima.setBounds(10, 11, 181, 14);
 		getContentPane().add(lblCantidadOptima);
 		
-		txtCantidadOptima = new JTextField();
+		txtCantidadOptima = new JTextField(Tienda.cantidadOptima + "");
 		txtCantidadOptima.setBounds(201, 8, 86, 20);
 		getContentPane().add(txtCantidadOptima);
 		txtCantidadOptima.setColumns(10);
 		
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(335, 7, 89, 23);
 		getContentPane().add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(335, 41, 89, 23);
+		btnCancelar.addActionListener(this);
+		btnCancelar.setBounds(335, 35, 89, 23);
 		getContentPane().add(btnCancelar);
 
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnAceptar) {
+			actionPerformedBtnAceptar(e);
+		}
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
+		dispose();
+	}
+	protected void actionPerformedBtnAceptar(ActionEvent e) {
+		Tienda.cantidadOptima = leerCantidad(txtCantidadOptima); 
+	}
+	int leerCantidad(JTextField txt) {
+		return Integer.parseInt(txt.getText());
 	}
 }

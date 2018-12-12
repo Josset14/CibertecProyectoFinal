@@ -1,0 +1,213 @@
+package cibertec;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ModificarAlfajor extends JDialog implements ActionListener {
+
+	private final JPanel contentPanel = new JPanel();
+	private JTextField txtPrecio;
+	private JTextField txtContenido;
+	private JTextField txtPeso;
+	private JTextField txtSabor;
+	private JComboBox cboLista;
+	private JButton btnCerrar;
+	private JButton btnGrabar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			ModificarAlfajor dialog = new ModificarAlfajor();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ModificarAlfajor() {
+		setTitle("Modifica alfajor");
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		{
+			JLabel lblMarca = new JLabel("Marca");
+			lblMarca.setBounds(10, 11, 93, 14);
+			contentPanel.add(lblMarca);
+		}
+		{
+			JLabel lblPrecio = new JLabel("Precio (S/)");
+			lblPrecio.setBounds(10, 36, 93, 14);
+			contentPanel.add(lblPrecio);
+		}
+		{
+			JLabel lblContenidoud = new JLabel("Contenido (ud)");
+			lblContenidoud.setBounds(10, 61, 93, 14);
+			contentPanel.add(lblContenidoud);
+		}
+		{
+			JLabel lblPeso = new JLabel("Peso (g)");
+			lblPeso.setBounds(10, 86, 72, 14);
+			contentPanel.add(lblPeso);
+		}
+		{
+			JLabel lblSabor = new JLabel("Sabor");
+			lblSabor.setBounds(10, 111, 72, 14);
+			contentPanel.add(lblSabor);
+		}
+		{
+			cboLista = new JComboBox <String>();
+			cboLista.addActionListener(this);
+			cboLista.setModel(new DefaultComboBoxModel(new String[] {"Alfajor", "Delicia", "Vimar", "Turok", "Havanna"}));
+			cboLista.setBounds(113, 8, 104, 20);
+			contentPanel.add(cboLista);
+		}
+		{
+			txtPrecio = new JTextField();
+			txtPrecio.setBounds(113, 33, 104, 20);
+			contentPanel.add(txtPrecio);
+			txtPrecio.setColumns(10);
+		}
+		{
+			txtContenido = new JTextField();
+			txtContenido.setBounds(113, 58, 104, 20);
+			contentPanel.add(txtContenido);
+			txtContenido.setColumns(10);
+		}
+		{
+			txtPeso = new JTextField();
+			txtPeso.setBounds(113, 83, 104, 20);
+			contentPanel.add(txtPeso);
+			txtPeso.setColumns(10);
+		}
+		{
+			txtSabor = new JTextField();
+			txtSabor.setBounds(113, 108, 104, 20);
+			contentPanel.add(txtSabor);
+			txtSabor.setColumns(10);
+		}
+		{
+			btnCerrar = new JButton("Cerrar");
+			btnCerrar.addActionListener(this);
+			btnCerrar.setBounds(335, 7, 89, 23);
+			contentPanel.add(btnCerrar);
+		}
+		{
+			btnGrabar = new JButton("Grabar");
+			btnGrabar.addActionListener(this);
+			btnGrabar.setBounds(335, 36, 89, 23);
+			contentPanel.add(btnGrabar);
+		}
+	}
+
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnGrabar) {
+			actionPerformedBtnGrabar(arg0);
+		}
+		if (arg0.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(arg0);
+		}
+		if (arg0.getSource() == cboLista) {
+			actionPerformedCboLista(arg0);
+		}
+	}
+	protected void actionPerformedCboLista(ActionEvent arg0) {
+		int codigo = cboLista.getSelectedIndex();
+		switch(codigo) {
+			case 0:
+				txtPrecio.setText(Tienda.precio0 + "");
+				txtContenido.setText(Tienda.contenido0 + "");
+				txtPeso.setText(Tienda.peso0 + "");
+				txtSabor.setText(Tienda.sabor0);
+				break;
+			case 1:
+				txtPrecio.setText(Tienda.precio1 + "");
+				txtContenido.setText(Tienda.contenido1 + "");
+				txtPeso.setText(Tienda.peso1 + "");
+				txtSabor.setText(Tienda.sabor1);
+				break;
+			case 2:
+				txtPrecio.setText(Tienda.precio2 + "");
+				txtContenido.setText(Tienda.contenido2 + "");
+				txtPeso.setText(Tienda.peso2 + "");
+				txtSabor.setText(Tienda.sabor2);
+				break;
+			case 3:
+				txtPrecio.setText(Tienda.precio3 + "");
+				txtContenido.setText(Tienda.contenido3 + "");
+				txtPeso.setText(Tienda.peso3 + "");
+				txtSabor.setText(Tienda.sabor3);
+				break;
+			default:
+				txtPrecio.setText(Tienda.precio4+ "");
+				txtContenido.setText(Tienda.contenido4 + "");
+				txtPeso.setText(Tienda.peso4 + "");
+				txtSabor.setText(Tienda.sabor4);
+				break;
+		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
+		dispose();
+	}
+	protected void actionPerformedBtnGrabar(ActionEvent arg0) {
+		int codigo = cboLista.getSelectedIndex(), contenido = leerInt(txtContenido);
+		double precio = leerReal(txtPrecio), peso = leerReal(txtPrecio);
+		String sabor = leerString(txtSabor);
+		
+		switch(codigo) {
+			case 0:
+				Tienda.precio0 = precio;
+				Tienda.contenido0 = contenido;
+				Tienda.peso0 = peso;
+				Tienda.sabor0 = sabor;
+				break;
+			case 1:
+				Tienda.precio1 = precio;
+				Tienda.contenido1 = contenido;
+				Tienda.peso1 = peso;
+				Tienda.sabor1 = sabor;
+				break;
+			case 2:
+				Tienda.precio2 = precio;
+				Tienda.contenido2 = contenido;
+				Tienda.peso2 = peso;
+				Tienda.sabor2 = sabor;
+				break;
+			case 3:
+				Tienda.precio3 = precio;
+				Tienda.contenido3 = contenido;
+				Tienda.peso3 = peso;
+				Tienda.sabor2 = sabor;
+				break;
+			default:
+				Tienda.precio4 = precio;
+				Tienda.contenido4 = contenido;
+				Tienda.peso4 = peso;
+				Tienda.sabor4 = sabor;
+				break;
+		}
+	}
+	
+	int leerEntero(JTextField txt) {
+		return txt.getText();
+	}
+}

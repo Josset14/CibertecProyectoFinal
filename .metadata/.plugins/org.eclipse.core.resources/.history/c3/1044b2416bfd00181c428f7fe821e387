@@ -1,0 +1,106 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ConfigurarDescuentos extends JDialog implements ActionListener {
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+	private JLabel lblDescuento1;
+	private JLabel lblDescuento2;
+	private JLabel lblDescuento3;
+	private JLabel lblDescuento4;
+	private JTextField txtDescuento1;
+	private JTextField txtDescuento2;
+	private JTextField txtDescuento3;
+	private JTextField txtDescuento4;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConfigurarDescuentos dialog = new ConfigurarDescuentos();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ConfigurarDescuentos() {
+		setTitle("Configurar  Porcentaje de  Descuento");
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
+		
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBounds(323, 11, 89, 23);
+		getContentPane().add(btnAceptar);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
+		btnCancelar.setBounds(323, 45, 89, 23);
+		getContentPane().add(btnCancelar);
+		
+		lblDescuento1 = new JLabel("1 a 5 cajas");
+		lblDescuento1.setBounds(10, 15, 89, 14);
+		getContentPane().add(lblDescuento1);
+		
+		lblDescuento2 = new JLabel("6 a 10 cajas");
+		lblDescuento2.setBounds(10, 49, 89, 14);
+		getContentPane().add(lblDescuento2);
+		
+		lblDescuento3 = new JLabel("11 a 15 cajas");
+		lblDescuento3.setBounds(10, 79, 89, 14);
+		getContentPane().add(lblDescuento3);
+		
+		lblDescuento4 = new JLabel("Mas de 15 cajas ");
+		lblDescuento4.setBounds(10, 114, 89, 14);
+		getContentPane().add(lblDescuento4);
+		
+		txtDescuento1 = new JTextField();
+		txtDescuento1.setBounds(109, 11, 86, 22);
+		getContentPane().add(txtDescuento1);
+		txtDescuento1.setColumns(10);
+		
+		txtDescuento2 = new JTextField();
+		txtDescuento2.setColumns(10);
+		txtDescuento2.setBounds(109, 45, 86, 22);
+		getContentPane().add(txtDescuento2);
+		
+		txtDescuento3 = new JTextField();
+		txtDescuento3.setColumns(10);
+		txtDescuento3.setBounds(109, 77, 86, 22);
+		getContentPane().add(txtDescuento3);
+		
+		txtDescuento4 = new JTextField();
+		txtDescuento4.setColumns(10);
+		txtDescuento4.setBounds(109, 110, 86, 22);
+		getContentPane().add(txtDescuento4);
+
+	}
+	
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
+		dispose();
+	}
+}

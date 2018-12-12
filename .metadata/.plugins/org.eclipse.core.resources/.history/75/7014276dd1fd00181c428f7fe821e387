@@ -1,0 +1,114 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class GenerarReportes extends JDialog implements ActionListener {
+	private JScrollPane scrollPane;
+	private JTextArea txtS;
+	private JLabel lblTipoDeReporte;
+	private JComboBox cboTipoDeReporte;
+	private JButton btnCerrar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GenerarReportes dialog = new GenerarReportes();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public GenerarReportes() {
+		setTitle("Generar reportes");
+		setBounds(100, 100, 800, 400);
+		getContentPane().setLayout(null);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 73, 744, 265);
+		getContentPane().add(scrollPane);
+		
+		txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
+		
+		lblTipoDeReporte = new JLabel("Tipo de reporte");
+		lblTipoDeReporte.setBounds(10, 24, 121, 14);
+		getContentPane().add(lblTipoDeReporte);
+		
+		cboTipoDeReporte = new JComboBox();
+		cboTipoDeReporte.addActionListener(this);
+		cboTipoDeReporte.setModel(new DefaultComboBoxModel(new String[] {"Ventas por marca", "Marcas con venta \u00F3ptima", "Precios en relaci\u00F3n al promedio", "Precio promedio, mayor y menor"}));
+		cboTipoDeReporte.setBounds(136, 21, 440, 20);
+		getContentPane().add(cboTipoDeReporte);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(646, 20, 89, 23);
+		getContentPane().add(btnCerrar);
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+		if (e.getSource() == cboTipoDeReporte) {
+			actionPerformedCboTipoDeReporte(e);
+		}
+	}
+	protected void actionPerformedCboTipoDeReporte(ActionEvent e) {
+		txtS.setText("");
+		int posTipo = cboTipoDeReporte.getSelectedIndex();
+		switch(posTipo) {
+			case 0:
+				ventaPorMarca();
+				break;
+			case 1:
+				marcaVentaOptima();
+				break;
+			case 2:
+				precioAlPromedio();
+				break;
+			default:
+				precioMayorMenor();
+				break;
+		}
+	}
+	
+	void ventaPorMarca() {
+		imprimir("VENTAS POR MARCA");
+		imprimir("");
+		imprimir("Nombre: " + Tienda.marca0);
+		imprimir("Cantidad de ventas: ");
+		imprimir("Cantidad total de unidades vendidas: ");
+		imprimir("Importe total acumulado: ");
+	}
+	
+	void imprimir(String s){
+		txtS.append(s + "\n");
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		dispose();
+	}
+}

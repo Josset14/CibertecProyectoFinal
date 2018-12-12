@@ -1,0 +1,127 @@
+package cibertec;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ConsultarAlfajor extends JDialog implements ActionListener {
+
+	private final JPanel contentPanel = new JPanel();
+	private JTextField txtTxtprecio;
+	private JTextField txtContenido;
+	private JTextField txtPeso;
+	private JTextField txtSabor;
+	private JComboBox cboMarca;
+	private JButton btnGrabar;
+	private JButton btnCerrar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			ConsultarAlfajor dialog = new ConsultarAlfajor();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ConsultarAlfajor() {
+		setTitle("Consultar Alfajor");
+		setBounds(100, 100, 450, 200);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		{
+			JLabel lblMarca = new JLabel("Marca");
+			lblMarca.setBounds(10, 11, 92, 14);
+			contentPanel.add(lblMarca);
+		}
+		{
+			JLabel lblPrecios = new JLabel("Precio (S/)");
+			lblPrecios.setBounds(10, 36, 92, 14);
+			contentPanel.add(lblPrecios);
+		}
+		{
+			JLabel lblContenido = new JLabel("Contenido (und)");
+			lblContenido.setBounds(10, 61, 92, 14);
+			contentPanel.add(lblContenido);
+		}
+		{
+			JLabel lblPesog = new JLabel("Peso (g)");
+			lblPesog.setBounds(10, 86, 92, 14);
+			contentPanel.add(lblPesog);
+		}
+		{
+			JLabel lblSabor = new JLabel("Sabor");
+			lblSabor.setBounds(10, 111, 92, 14);
+			contentPanel.add(lblSabor);
+		}
+		
+		txtTxtprecio = new JTextField();
+		txtTxtprecio.setBounds(112, 33, 86, 20);
+		contentPanel.add(txtTxtprecio);
+		txtTxtprecio.setColumns(10);
+		
+		txtContenido = new JTextField();
+		txtContenido.setBounds(112, 58, 86, 20);
+		contentPanel.add(txtContenido);
+		txtContenido.setColumns(10);
+		
+		txtPeso = new JTextField();
+		txtPeso.setBounds(112, 83, 86, 20);
+		contentPanel.add(txtPeso);
+		txtPeso.setColumns(10);
+		
+		txtSabor = new JTextField();
+		txtSabor.setBounds(112, 108, 86, 20);
+		contentPanel.add(txtSabor);
+		txtSabor.setColumns(10);
+		
+		cboMarca = new JComboBox();
+		cboMarca.setModel(new DefaultComboBoxModel(new String[] {"Alfano", "Delicia", "Vimar"}));
+		cboMarca.setBounds(112, 8, 86, 20);
+		contentPanel.add(cboMarca);
+		
+		btnGrabar = new JButton("Grabar");
+		btnGrabar.addActionListener(this);
+		btnGrabar.setBounds(335, 32, 89, 23);
+		contentPanel.add(btnGrabar);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(335, 7, 89, 23);
+		contentPanel.add(btnCerrar);
+	}
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(arg0);
+		}
+		if (arg0.getSource() == btnGrabar) {
+			actionPerformedBtnGrabar(arg0);
+		}
+	}
+	protected void actionPerformedBtnGrabar(ActionEvent arg0) {
+		
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
+		dispose();
+	}
+}

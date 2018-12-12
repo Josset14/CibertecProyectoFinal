@@ -16,8 +16,8 @@ public class ConfigurarObsequio extends JDialog implements ActionListener {
 	private JLabel lblObsequio;
 	private JTextField txtMinimoCajas;
 	private JTextField txtObsequio;
-	private JButton btnNewButton;
-	private JButton btnCancelar;
+	private JButton btnAceptar;
+	private JButton button;
 
 	/**
 	 * Launch the application.
@@ -46,11 +46,11 @@ public class ConfigurarObsequio extends JDialog implements ActionListener {
 		getContentPane().setLayout(null);
 		
 		lblMinimoCajas = new JLabel("Cantidad Minima de Cajas Adquiridas");
-		lblMinimoCajas.setBounds(10, 26, 188, 14);
+		lblMinimoCajas.setBounds(10, 26, 213, 14);
 		getContentPane().add(lblMinimoCajas);
 		
 		lblObsequio = new JLabel("Obsequio");
-		lblObsequio.setBounds(10, 51, 188, 14);
+		lblObsequio.setBounds(10, 51, 213, 14);
 		getContentPane().add(lblObsequio);
 		
 		txtMinimoCajas = new JTextField();
@@ -63,22 +63,40 @@ public class ConfigurarObsequio extends JDialog implements ActionListener {
 		txtObsequio.setBounds(235, 48, 86, 20);
 		getContentPane().add(txtObsequio);
 		
-		btnNewButton = new JButton("Aceptar");
-		btnNewButton.setBounds(335, 22, 89, 23);
-		getContentPane().add(btnNewButton);
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this);
+		btnAceptar.setBounds(333, 22, 89, 23);
+		getContentPane().add(btnAceptar);
 		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(this);
-		btnCancelar.setBounds(335, 47, 89, 23);
-		getContentPane().add(btnCancelar);
+		button = new JButton("Cancelar");
+		button.addActionListener(this);
+		button.setBounds(333, 47, 89, 23);
+		getContentPane().add(button);
 
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		if (arg0.getSource() == btnCancelar) {
+		if (arg0.getSource() == button) {
 			actionPerformedButton(arg0);
 		}
+		if (arg0.getSource() == btnAceptar) {
+			actionPerformedBtnAceptar(arg0);
+		}
+	}
+	protected void actionPerformedBtnAceptar(ActionEvent arg0) {
+		Tienda.cantidadObsequiable = leerMin(txtMinimoCajas);
+		Tienda.obsequio = leerObsequio(txtObsequio);
+		
 	}
 	protected void actionPerformedButton(ActionEvent arg0) {
+		dispose();
+	}
+	
+	int leerMin(JTextField txt) {
+		return Integer.parseInt(txt.getText());
+	}
+	
+	String leerObsequio(JTextField txt) {
+		return txt.getText();
 	}
 }

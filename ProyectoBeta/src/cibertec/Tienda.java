@@ -49,7 +49,95 @@ public class Tienda extends JFrame implements ActionListener {
 			}
 		});
 	}
-
+	
+	/**
+	* Declaración de Variables Globales 
+	*/
+	
+	// Datos mínimos del primer alfajor
+	public static String marca0 = "Alfano";
+	public static double precio0 = 18.0;
+	public static int contenido0 = 12;
+	public static double peso0 = 612;
+	public static String sabor0 = "Chocolate";
+	
+	// Datos mínimos del segundo alfajor
+	public static String marca1 = "Delicia";
+	public static double precio1 = 30.0;
+	public static int contenido1 = 24;
+	public static double peso1 = 1320;
+	public static String sabor1 = "Nuez";
+	
+	// Datos mínimos del tercer alfajor
+	public static String marca2 = "Vimar";
+	public static double precio2 = 16.8;
+	public static int contenido2 = 12;
+	public static double peso2 = 720;
+	public static String sabor2 = "Fresa";
+	
+	// Datos mínimos del cuarto alfajor
+	public static String marca3 = "Turok";
+	public static double precio3 = 32.4;
+	public static int contenido3 = 24;
+	public static double peso3 = 1250;
+	public static String sabor3 = "Mango";
+	
+	// Datos mínimos del quinto alfajor
+	public static String marca4 = "Havanna";
+	public static double precio4 = 19.2;
+	public static int contenido4 = 12;
+	public static double peso4 = 780;
+	public static String sabor4 = "Piña";
+	
+	// Porcentajes de descuento
+	public static double porcentaje1 = 4.0;
+	public static double porcentaje2 = 5.5;
+	public static double porcentaje3 = 7.0;
+	public static double porcentaje4 = 8.5;
+	
+	// Cantidad óptima de cajas vendidas
+	public static int cantidadOptima = 40;
+	
+	// Cantidad mínima de cajas adquiridas para acceder al obsequio
+	public static int cantidadObsequiable = 18;
+	
+	// Obsequio por cantidad mínima de cajas adquiridas
+	public static String obsequio = "Billetera";
+	
+	// Número de cliente que recibe el premio sorpresa
+	public static int numeroClienteSorpresa = 5;
+	
+	// Premio sorpresa
+	public static String premioSorpresa = "Un polo";
+	
+	//Contador de número de cliente
+	public static int contNCliente = 0;
+	
+	// Contador de cantidad de ventas
+	public static int contCantidadVentas0;
+	public static int contCantidadVentas1;
+	public static int contCantidadVentas2;
+	public static int contCantidadVentas3;
+	public static int contCantidadVentas4;
+	
+	// Contador de unidades vendidas
+	public static int contUnidVendidas0;
+	public static int contUnidVendidas1;
+	public static int contUnidVendidas2;
+	public static int contUnidVendidas3;
+	public static int contUnidVendidas4;
+	
+	// Importe total acumulado por marca
+	public static double importeTotalMarca0;
+	public static double importeTotalMarca1;
+	public static double importeTotalMarca2;
+	public static double importeTotalMarca3;
+	public static double importeTotalMarca4;
+	
+	//Importe general acumulado
+	public static double importeGeneral;
+	
+	
 	/**
 	 * Create the frame.
 	 */
@@ -159,6 +247,7 @@ public class Tienda extends JFrame implements ActionListener {
 			actionPerformedMntmSalir(arg0);
 		}
 	}
+	
 	protected void actionPerformedMntmSalir(ActionEvent arg0) {
 		dispose();
 	}

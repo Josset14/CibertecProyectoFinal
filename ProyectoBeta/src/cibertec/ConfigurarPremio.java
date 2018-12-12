@@ -8,8 +8,10 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class ConfigurarPremio extends JDialog {
+public class ConfigurarPremio extends JDialog implements ActionListener {
 	private JLabel lblNmeroDeCliente;
 	private JLabel lblPremioSorpresa;
 	private JTextField txtNumeroCliente;
@@ -44,30 +46,56 @@ public class ConfigurarPremio extends JDialog {
 		getContentPane().setLayout(null);
 		
 		lblNmeroDeCliente = new JLabel("N\u00FAmero de cliente");
-		lblNmeroDeCliente.setBounds(10, 11, 103, 14);
+		lblNmeroDeCliente.setBounds(10, 11, 140, 14);
 		getContentPane().add(lblNmeroDeCliente);
 		
 		lblPremioSorpresa = new JLabel("Premio sorpresa");
-		lblPremioSorpresa.setBounds(10, 39, 103, 14);
+		lblPremioSorpresa.setBounds(10, 39, 140, 14);
 		getContentPane().add(lblPremioSorpresa);
 		
 		txtNumeroCliente = new JTextField();
-		txtNumeroCliente.setBounds(123, 8, 86, 20);
+		txtNumeroCliente.setBounds(162, 8, 86, 20);
 		getContentPane().add(txtNumeroCliente);
 		txtNumeroCliente.setColumns(10);
 		
 		txtPremio = new JTextField();
-		txtPremio.setBounds(123, 36, 86, 20);
+		txtPremio.setBounds(162, 36, 86, 20);
 		getContentPane().add(txtPremio);
 		txtPremio.setColumns(10);
 		
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(335, 7, 89, 23);
 		getContentPane().add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(335, 35, 89, 23);
 		getContentPane().add(btnCancelar);
 
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
+		if (e.getSource() == btnAceptar) {
+			actionPerformedBtnAceptar(e);
+		}
+	}
+	
+	int leerInt(JTextField txt) {
+		return Integer.parseInt(txt.getText());
+	}
+	
+	String leerString(JTextField txt) {
+		return txt.getText();
+	}
+	
+	protected void actionPerformedBtnAceptar(ActionEvent e) {
+		Tienda.numeroClienteSorpresa = leerInt(txtNumeroCliente);
+		Tienda.premioSorpresa = leerString(txtPremio);
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
+		dispose();
 	}
 }

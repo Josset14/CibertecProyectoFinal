@@ -11,14 +11,19 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class ModificarAlfajor extends JDialog {
+public class ModificarAlfajor extends JDialog implements ActionListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtPrecio;
 	private JTextField txtContenido;
 	private JTextField txtPeso;
 	private JTextField txtSabor;
+	private JComboBox cboLista;
+	private JButton btnCerrar;
+	private JButton btnGrabar;
 
 	/**
 	 * Launch the application.
@@ -70,7 +75,8 @@ public class ModificarAlfajor extends JDialog {
 			contentPanel.add(lblSabor);
 		}
 		{
-			JComboBox cboLista = new JComboBox();
+			cboLista = new JComboBox <String>();
+			cboLista.addActionListener(this);
 			cboLista.setModel(new DefaultComboBoxModel(new String[] {"Alfajor", "Delicia", "Vimar", "Turok", "Havanna"}));
 			cboLista.setBounds(113, 8, 104, 20);
 			contentPanel.add(cboLista);
@@ -100,31 +106,117 @@ public class ModificarAlfajor extends JDialog {
 			txtSabor.setColumns(10);
 		}
 		{
-			JButton btnCerrar = new JButton("Cerrar");
+			btnCerrar = new JButton("Cerrar");
+			btnCerrar.addActionListener(this);
 			btnCerrar.setBounds(335, 7, 89, 23);
 			contentPanel.add(btnCerrar);
 		}
 		{
-			JButton btnGrabar = new JButton("Grabar");
+			btnGrabar = new JButton("Grabar");
+			btnGrabar.addActionListener(this);
 			btnGrabar.setBounds(335, 36, 89, 23);
 			contentPanel.add(btnGrabar);
 		}
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
-		}
 	}
 
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnGrabar) {
+			actionPerformedBtnGrabar(arg0);
+		}
+		if (arg0.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(arg0);
+		}
+		if (arg0.getSource() == cboLista) {
+			actionPerformedCboLista(arg0);
+		}
+	}
+	protected void actionPerformedCboLista(ActionEvent arg0) {
+		int codigo = cboLista.getSelectedIndex();
+		switch(codigo) {
+			case 0:
+				txtPrecio.setText(Tienda.precio0 + "");
+				txtContenido.setText(Tienda.contenido0 + "");
+				txtPeso.setText(Tienda.peso0 + "");
+				txtSabor.setText(Tienda.sabor0);
+				break;
+			case 1:
+				txtPrecio.setText(Tienda.precio1 + "");
+				txtContenido.setText(Tienda.contenido1 + "");
+				txtPeso.setText(Tienda.peso1 + "");
+				txtSabor.setText(Tienda.sabor1);
+				break;
+			case 2:
+				txtPrecio.setText(Tienda.precio2 + "");
+				txtContenido.setText(Tienda.contenido2 + "");
+				txtPeso.setText(Tienda.peso2 + "");
+				txtSabor.setText(Tienda.sabor2);
+				break;
+			case 3:
+				txtPrecio.setText(Tienda.precio3 + "");
+				txtContenido.setText(Tienda.contenido3 + "");
+				txtPeso.setText(Tienda.peso3 + "");
+				txtSabor.setText(Tienda.sabor3);
+				break;
+			default:
+				txtPrecio.setText(Tienda.precio4+ "");
+				txtContenido.setText(Tienda.contenido4 + "");
+				txtPeso.setText(Tienda.peso4 + "");
+				txtSabor.setText(Tienda.sabor4);
+				break;
+		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
+		dispose();
+	}
+	protected void actionPerformedBtnGrabar(ActionEvent arg0) {
+		int codigo = cboLista.getSelectedIndex(), contenido = leerInt(txtContenido);
+		double precio = leerDouble(txtPrecio), peso = leerDouble(txtPrecio);
+		String sabor = leerString(txtSabor);
+		
+		switch(codigo) {
+			case 0:
+				Tienda.precio0 = precio;
+				Tienda.contenido0 = contenido;
+				Tienda.peso0 = peso;
+				Tienda.sabor0 = sabor;
+				break;
+			case 1:
+				Tienda.precio1 = precio;
+				Tienda.contenido1 = contenido;
+				Tienda.peso1 = peso;
+				Tienda.sabor1 = sabor;
+				break;
+			case 2:
+				Tienda.precio2 = precio;
+				Tienda.contenido2 = contenido;
+				Tienda.peso2 = peso;
+				Tienda.sabor2 = sabor;
+				break;
+			case 3:
+				Tienda.precio3 = precio;
+				Tienda.contenido3 = contenido;
+				Tienda.peso3 = peso;
+				Tienda.sabor2 = sabor;
+				break;
+			default:
+				Tienda.precio4 = precio;
+				Tienda.contenido4 = contenido;
+				Tienda.peso4 = peso;
+				Tienda.sabor4 = sabor;
+				break;
+		}
+	}
+	
+	//Métodos parámetro y retorno
+	int leerInt(JTextField txt) {
+		return Integer.parseInt(txt.getText());
+	}
+	
+	double leerDouble(JTextField txt) {
+		return Double.parseDouble(txt.getText());
+	}
+	
+	String leerString(JTextField txt) {
+		return txt.getText();
+	}
 }

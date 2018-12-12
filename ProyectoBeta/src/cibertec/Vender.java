@@ -13,8 +13,10 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Vender extends JDialog {
+public class Vender extends JDialog implements ActionListener {
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblMarca;
@@ -22,6 +24,8 @@ public class Vender extends JDialog {
 	private JTextField txtPrecio;
 	private JComboBox cboMarca;
 	private JTextArea txtS;
+	private JButton btnVender;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
@@ -36,6 +40,26 @@ public class Vender extends JDialog {
 			e.printStackTrace();
 		}
 	}
+	
+	public static int nCliente = 0;
+	
+	public static int cantidadVentasMarca0 = 0;
+	public static int cantidadVentasMarca1 = 0;
+	public static int cantidadVentasMarca2 = 0;
+	public static int cantidadVentasMarca3 = 0;
+	public static int cantidadVentasMarca4 = 0;
+	
+	public static int cantidadUnidVendidas0 = 0;
+	public static int cantidadUnidVendidas1 = 0;
+	public static int cantidadUnidVendidas2 = 0;
+	public static int cantidadUnidVendidas3 = 0;
+	public static int cantidadUnidVendidas4 = 0;
+	
+	public static double impAcumuladoMarca0 = 0.0;
+	public static double impAcumuladoMarca1 = 0.0;
+	public static double impAcumuladoMarca2 = 0.0;
+	public static double impAcumuladoMarca3 = 0.0;
+	public static double impAcumuladoMarca4 = 0.0;
 
 	/**
 	 * Create the dialog.
@@ -68,21 +92,25 @@ public class Vender extends JDialog {
 		txtCantidad.setColumns(10);
 		
 		txtPrecio = new JTextField();
+		txtPrecio.setEditable(false);
 		txtPrecio.setBounds(121, 57, 86, 20);
 		contentPanel.add(txtPrecio);
 		txtPrecio.setColumns(10);
 		
 		cboMarca = new JComboBox();
+		cboMarca.addActionListener(this);
 		cboMarca.setModel(new DefaultComboBoxModel(new String[] {"Alfano", "Delicia", "Vimar", "Turok", "Havanna"}));
 		cboMarca.setBounds(121, 18, 86, 20);
 		contentPanel.add(cboMarca);
 		{
-			JButton btnVender = new JButton("Vender");
+			btnVender = new JButton("Vender");
+			btnVender.addActionListener(this);
 			btnVender.setBounds(638, 17, 111, 23);
 			contentPanel.add(btnVender);
 		}
 		{
-			JButton btnCerrar = new JButton("Cerrar");
+			btnCerrar = new JButton("Cerrar");
+			btnCerrar.addActionListener(this);
 			btnCerrar.setBounds(638, 56, 111, 23);
 			contentPanel.add(btnCerrar);
 		}
@@ -94,5 +122,144 @@ public class Vender extends JDialog {
 			txtS = new JTextArea();
 			scrollPane.setViewportView(txtS);
 		}
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+		if (e.getSource() == btnVender) {
+			actionPerformedBtnVender(e);
+		}
+		if (e.getSource() == cboMarca) {
+			actionPerformedCboMarca(e);
+		}
+	}
+	protected void actionPerformedCboMarca(ActionEvent e) {
+		int	posMarca = cboMarca.getSelectedIndex();
+		
+		switch(posMarca){
+			case 0:
+				txtPrecio.setText(Tienda.precio0 + "");
+				break;
+			case 1:
+				txtPrecio.setText(Tienda.precio1 + "");
+				break;
+			case 2:
+				txtPrecio.setText(Tienda.precio2 + "");
+				break;
+			case 3:
+				txtPrecio.setText(Tienda.precio3 + "");
+				break;
+			default:
+				txtPrecio.setText(Tienda.precio4 + "");
+				break;
+		}		
+	}
+	
+
+	protected void actionPerformedBtnVender(ActionEvent e) {		
+		int
+			cantidad = Integer.parseInt(txtCantidad.getText()),
+			posMarca = cboMarca.getSelectedIndex();
+		String marca, obsequio, premioSorpresa;
+	
+		double precio, importeCompra, descuento, importePagar;
+		
+		switch(posMarca){
+			case 0:
+				precio = Tienda.precio0;
+				break;
+			case 1:
+				precio = Tienda.precio1;
+				break;
+			case 2:
+				precio = Tienda.precio2;
+				break;
+			case 3:
+				precio = Tienda.precio3;
+				break;
+			default:
+				precio = Tienda.precio4;
+				break;
+		}
+		
+		nCliente++;
+		
+		marca = cboMarca.getSelectedItem().toString();
+		
+		importeCompra = precio * cantidad;
+		
+		if(cantidad <= 5)
+			descuento = cantidad * (Tienda.porcentaje1/100);
+		else if (cantidad <= 10)
+			descuento = cantidad * (Tienda.porcentaje2/100);
+		else if (cantidad <= 15)
+			descuento = cantidad * (Tienda.porcentaje3/100);
+		else
+			descuento = cantidad * (Tienda.porcentaje4/100);
+	
+		importePagar = importeCompra - descuento;
+		
+		if (cantidad > Tienda.cantidadObsequiable) {
+			obsequio = Tienda.obsequio;
+		} else {
+			obsequio = "Ninguno";
+		}
+		
+		if (nCliente == Tienda.numeroClienteSorpresa)
+			premioSorpresa = Tienda.premioSorpresa;
+		else
+			premioSorpresa = "No";
+		
+		switch(posMarca){
+			case 0:
+				cantidadVentasMarca0++;
+				cantidadUnidVendidas0+=cantidad; 
+				impAcumuladoMarca0+=importePagar;
+				break;
+			case 1:
+				cantidadVentasMarca1++;
+				cantidadUnidVendidas1+=cantidad; 
+				impAcumuladoMarca1+=importePagar;
+				break;
+			case 2:
+				cantidadVentasMarca2++;
+				cantidadUnidVendidas2+=cantidad; 
+				impAcumuladoMarca2+=importePagar;
+				break;
+			case 3:
+				cantidadVentasMarca3++;
+				cantidadUnidVendidas3+=cantidad; 
+				impAcumuladoMarca3+=importePagar;
+				break;
+			default:
+				cantidadVentasMarca4++;
+				cantidadUnidVendidas4+=cantidad; 
+				impAcumuladoMarca4+=importePagar;
+				break;
+		}
+		
+		mostrarBoleta(marca, precio, cantidad, importeCompra, descuento, importePagar, obsequio, premioSorpresa);
+	}
+	
+	void mostrarBoleta(String marca, double precio, int cantidad, double importeCompra, double descuento, double importePagar, String obsequio, String premioSorpresa) {
+		txtS.setText("");
+		imprimir("VENTA");
+		imprimir("");
+		imprimir("Marca de alfajor: " + marca);
+		imprimir("Precio unitario: " + precio);
+		imprimir("Cantidad de cajas adquiridas: " + cantidad);
+		imprimir("Importe de compra: " + importeCompra);
+		imprimir("Importe de descuento: " + descuento);
+		imprimir("Importe a pagar: " + importePagar);
+		imprimir("Obsequio: " + obsequio);
+		imprimir("Premio sorpresa: " + premioSorpresa);
+	}
+	
+	void imprimir(String s) {
+		txtS.append(s + "\n");
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		dispose();
 	}
 }

@@ -6,8 +6,10 @@ import javax.swing.JDialog;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class ConfigurarDescuentos extends JDialog {
+public class ConfigurarDescuentos extends JDialog implements ActionListener {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
 	private JLabel lblDescuento1;
@@ -46,10 +48,12 @@ public class ConfigurarDescuentos extends JDialog {
 		getContentPane().setLayout(null);
 		
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(323, 11, 89, 23);
 		getContentPane().add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(323, 45, 89, 23);
 		getContentPane().add(btnCancelar);
 		
@@ -69,25 +73,48 @@ public class ConfigurarDescuentos extends JDialog {
 		lblDescuento4.setBounds(10, 114, 89, 14);
 		getContentPane().add(lblDescuento4);
 		
-		txtDescuento1 = new JTextField();
+		txtDescuento1 = new JTextField(Tienda.porcentaje1 + "");
 		txtDescuento1.setBounds(109, 11, 86, 22);
 		getContentPane().add(txtDescuento1);
 		txtDescuento1.setColumns(10);
 		
-		txtDescuento2 = new JTextField();
+		txtDescuento2 = new JTextField(Tienda.porcentaje2 + "");
 		txtDescuento2.setColumns(10);
 		txtDescuento2.setBounds(109, 45, 86, 22);
 		getContentPane().add(txtDescuento2);
 		
-		txtDescuento3 = new JTextField();
+		txtDescuento3 = new JTextField(Tienda.porcentaje3 + "");
 		txtDescuento3.setColumns(10);
 		txtDescuento3.setBounds(109, 77, 86, 22);
 		getContentPane().add(txtDescuento3);
 		
-		txtDescuento4 = new JTextField();
+		txtDescuento4 = new JTextField(Tienda.porcentaje4 + "");
 		txtDescuento4.setColumns(10);
 		txtDescuento4.setBounds(109, 110, 86, 22);
 		getContentPane().add(txtDescuento4);
 
+	}
+	
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnAceptar) {
+			actionPerformedBtnAceptar(e);
+		}
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
+		dispose();
+	}
+	protected void actionPerformedBtnAceptar(ActionEvent e) {
+		Tienda.porcentaje1 = leerDescuento(txtDescuento1);
+		Tienda.porcentaje2 = leerDescuento(txtDescuento2);
+		Tienda.porcentaje3 = leerDescuento(txtDescuento3);
+		Tienda.porcentaje4 = leerDescuento(txtDescuento4);
+	}
+	
+	double leerDescuento(JTextField txt) {
+		return Double.parseDouble(txt.getText());
 	}
 }

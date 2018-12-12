@@ -1,0 +1,71 @@
+package cibertec;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ConfigurarCantidadOptima extends JDialog implements ActionListener {
+	private JLabel lblCantidadOptima;
+	private JTextField txtCantidadOptima;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConfigurarCantidadOptima dialog = new ConfigurarCantidadOptima();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ConfigurarCantidadOptima() {
+		setTitle("Configurar cantidad \u00F3ptima de alfajores vendido");
+		setBounds(100, 100, 450, 200);
+		getContentPane().setLayout(null);
+		
+		lblCantidadOptima = new JLabel("Cantidad \u00F3ptima de cajas vendidas");
+		lblCantidadOptima.setBounds(10, 11, 181, 14);
+		getContentPane().add(lblCantidadOptima);
+		
+		txtCantidadOptima = new JTextField(Tienda.cantidadOptima + "");
+		txtCantidadOptima.setBounds(201, 8, 86, 20);
+		getContentPane().add(txtCantidadOptima);
+		txtCantidadOptima.setColumns(10);
+		
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBounds(335, 7, 89, 23);
+		getContentPane().add(btnAceptar);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
+		btnCancelar.setBounds(335, 41, 89, 23);
+		getContentPane().add(btnCancelar);
+
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
+		dispose();
+	}
+}
