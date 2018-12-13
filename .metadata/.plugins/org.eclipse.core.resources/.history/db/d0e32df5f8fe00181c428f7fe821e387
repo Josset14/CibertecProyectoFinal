@@ -219,31 +219,15 @@ public class GenerarReportes extends JDialog implements ActionListener {
 		double promedio = promedioPrecios(), menor, mayor;
 		
 		menor = Tienda.precio0;
-		mayor = Tienda.precio0;
 		
-		if(menor > Tienda.precio1)
+		if(menor < Tienda.precio1)
 			menor = Tienda.precio1;
-		if(menor > Tienda.precio2)
+		if(menor < Tienda.precio2)
 			menor = Tienda.precio2;
-		if(menor > Tienda.precio3)
+		if(menor < Tienda.precio3)
 			menor = Tienda.precio3;
-		if(menor > Tienda.precio4)
+		if(menor < Tienda.precio4)
 			menor = Tienda.precio4;
-		
-		if(mayor < Tienda.precio1)
-			mayor = Tienda.precio1;
-		if(mayor < Tienda.precio2)
-			mayor = Tienda.precio2;
-		if(mayor < Tienda.precio3)
-			mayor = Tienda.precio3;
-		if(mayor < Tienda.precio4)
-			mayor = Tienda.precio4;
-
-		imprimir("Precio promedio, menor y mayor");
-		imprimir("");
-		imprimir("Precio promedio: " + promedio);
-		imprimir("Precio menor: " + menor);
-		imprimir("Precio mayor: " + mayor);
 		
 	}
 	

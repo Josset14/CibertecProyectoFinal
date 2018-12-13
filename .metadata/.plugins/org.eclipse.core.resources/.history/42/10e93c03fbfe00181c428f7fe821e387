@@ -77,31 +77,31 @@ public class ListarAlfajor extends JDialog implements ActionListener {
 		imprimir("Precio: " + Tienda.precio0);
 		imprimir("Contenido: " + Tienda.contenido0);
 		imprimir("Peso: " + Tienda.peso0);
-		imprimir("Sabor: " + Tienda.sabor0);
+		imprimir("Sabor: " + Tienda.peso0);
 		imprimir("");
 		imprimir("Marca: " + Tienda.marca1);
 		imprimir("Precio: " + Tienda.precio1);
 		imprimir("Contenido: " + Tienda.contenido1);
 		imprimir("Peso: " + Tienda.peso1);
-		imprimir("Sabor: " + Tienda.sabor1);
+		imprimir("Sabor: " + Tienda.peso1);
 		imprimir("");
 		imprimir("Marca: " + Tienda.marca2);
 		imprimir("Precio: " + Tienda.precio2);
 		imprimir("Contenido: " + Tienda.contenido2);
 		imprimir("Peso: " + Tienda.peso2);
-		imprimir("Sabor: " + Tienda.sabor2);
+		imprimir("Sabor: " + Tienda.peso2);
 		imprimir("");
 		imprimir("Marca: " + Tienda.marca3);
 		imprimir("Precio: " + Tienda.precio3);
 		imprimir("Contenido: " + Tienda.contenido3);
 		imprimir("Peso: " + Tienda.peso3);
-		imprimir("Sabor: " + Tienda.sabor3);
+		imprimir("Sabor: " + Tienda.peso3);
 		imprimir("");
 		imprimir("Marca: " + Tienda.marca4);
 		imprimir("Precio: " + Tienda.precio4);
 		imprimir("Contenido: " + Tienda.contenido4);
 		imprimir("Peso: " + Tienda.peso4);
-		imprimir("Sabor: " + Tienda.sabor4);
+		imprimir("Sabor: " + Tienda.peso4);
 		imprimir("");
 	}
 	

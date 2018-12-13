@@ -193,22 +193,8 @@ public class GenerarReportes extends JDialog implements ActionListener {
 			mensaje4 = "(mayor al promedio)";
 		
 		imprimir("Precios con relación al promedio");
-		imprimir("");
 		imprimir("Alfano");
-		imprimir("Precio: " + Tienda.precio0 + " " + mensaje0);
-		imprimir("");
-		imprimir("Delicia");
-		imprimir("Precio: " + Tienda.precio1 + " " + mensaje1);
-		imprimir("");
-		imprimir("Vimar");
-		imprimir("Precio: " + Tienda.precio2 + " " + mensaje2);
-		imprimir("");
-		imprimir("Turok");
-		imprimir("Precio: " + Tienda.precio3 + " " + mensaje3);
-		imprimir("");
-		imprimir("Havanna");
-		imprimir("Precio: " + Tienda.precio4 + " " + mensaje4);
-		imprimir("");
+		imprimir("Precio: " + Tienda.precio0);
 	}
 	
 	double promedioPrecios() {
@@ -216,34 +202,6 @@ public class GenerarReportes extends JDialog implements ActionListener {
 	}
 	
 	void precioMayorMenor() {
-		double promedio = promedioPrecios(), menor, mayor;
-		
-		menor = Tienda.precio0;
-		mayor = Tienda.precio0;
-		
-		if(menor > Tienda.precio1)
-			menor = Tienda.precio1;
-		if(menor > Tienda.precio2)
-			menor = Tienda.precio2;
-		if(menor > Tienda.precio3)
-			menor = Tienda.precio3;
-		if(menor > Tienda.precio4)
-			menor = Tienda.precio4;
-		
-		if(mayor < Tienda.precio1)
-			mayor = Tienda.precio1;
-		if(mayor < Tienda.precio2)
-			mayor = Tienda.precio2;
-		if(mayor < Tienda.precio3)
-			mayor = Tienda.precio3;
-		if(mayor < Tienda.precio4)
-			mayor = Tienda.precio4;
-
-		imprimir("Precio promedio, menor y mayor");
-		imprimir("");
-		imprimir("Precio promedio: " + promedio);
-		imprimir("Precio menor: " + menor);
-		imprimir("Precio mayor: " + mayor);
 		
 	}
 	
