@@ -75,6 +75,8 @@ public class ConfigurarCantidadOptima extends JDialog implements ActionListener 
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 		Tienda.cantidadOptima = leerCantOptima(txtCantidadOptima); 
 	}
+	// MÉTODO CON RETORNO
+	// Lectura de caja de texto
 	int leerCantOptima(JTextField txt) {
 		return Integer.parseInt(txt.getText());
 	}

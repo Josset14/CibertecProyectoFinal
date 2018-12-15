@@ -113,7 +113,8 @@ public class ConfigurarDescuentos extends JDialog implements ActionListener {
 		Tienda.porcentaje3 = leerDescuento(txtDescuento3);
 		Tienda.porcentaje4 = leerDescuento(txtDescuento4);
 	}
-	
+	// MÉTODO CON RETORNO DE DATOS
+	// Lectura de cajas de descuentos
 	double leerDescuento(JTextField txt) {
 		return Double.parseDouble(txt.getText());
 	}
