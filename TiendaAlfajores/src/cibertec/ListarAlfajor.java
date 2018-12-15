@@ -104,7 +104,7 @@ public class ListarAlfajor extends JDialog implements ActionListener {
 		imprimir("Sabor: " + Tienda.sabor4);
 		imprimir("");
 	}
-	
+	// Método imprimir
 	void imprimir(String s) {
 		txtS.append(s + "\n");
 	}

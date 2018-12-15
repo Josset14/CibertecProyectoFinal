@@ -122,7 +122,11 @@ public class ConsultarAlfajor extends JDialog implements ActionListener {
 	}
 	protected void actionPerformedCboMarca(ActionEvent arg0) {
 		int marca = cboMarca.getSelectedIndex();
-		switch(marca) {
+		mostrarDatosCombo(marca);
+	}
+	// MÉTODO SIN RETORNO DE DATOS
+	void mostrarDatosCombo(int m) {
+		switch(m) {
 			case 0:
 				txtPrecio.setText(Tienda.precio0 + "");
 				txtContenido.setText(Tienda.contenido0 + "");

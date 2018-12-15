@@ -41,20 +41,24 @@ public class Vender extends JDialog implements ActionListener {
 		}
 	}
 	
+	//Contador de número cliente
 	public static int nCliente = 0;
 	
+	//Contador cantidad de ventas por marca
 	public static int cantidadVentasMarca0 = 0;
 	public static int cantidadVentasMarca1 = 0;
 	public static int cantidadVentasMarca2 = 0;
 	public static int cantidadVentasMarca3 = 0;
 	public static int cantidadVentasMarca4 = 0;
 	
+	//Acumulador de cantidad de ventas por marca
 	public static int cantidadUnidVendidas0 = 0;
 	public static int cantidadUnidVendidas1 = 0;
 	public static int cantidadUnidVendidas2 = 0;
 	public static int cantidadUnidVendidas3 = 0;
 	public static int cantidadUnidVendidas4 = 0;
 	
+	//Acumulador de cantidad de importe por marca
 	public static double impAcumuladoMarca0 = 0.0;
 	public static double impAcumuladoMarca1 = 0.0;
 	public static double impAcumuladoMarca2 = 0.0;
@@ -136,7 +140,6 @@ public class Vender extends JDialog implements ActionListener {
 	}
 	protected void actionPerformedCboMarca(ActionEvent e) {
 		int	posMarca = cboMarca.getSelectedIndex();
-		
 		switch(posMarca){
 			case 0:
 				txtPrecio.setText(Tienda.precio0 + "");
@@ -155,7 +158,6 @@ public class Vender extends JDialog implements ActionListener {
 				break;
 		}		
 	}
-	
 
 	protected void actionPerformedBtnVender(ActionEvent e) {		
 		int

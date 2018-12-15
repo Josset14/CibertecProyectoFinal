@@ -22,7 +22,7 @@ public class ConfigurarObsequio extends JDialog implements ActionListener {
 	private JButton button;
 
 	/**
-	 * Launch the application.
+	 * Launch the application.	
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -87,7 +87,7 @@ public class ConfigurarObsequio extends JDialog implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnAceptar(ActionEvent arg0) {
-		Tienda.cantidadObsequiable = leerMin(txtMinimoCajas);
+		Tienda.cantidadObsequiable = leerMinimo(txtMinimoCajas);
 		Tienda.obsequio = leerObsequio(txtObsequio);
 		
 	}
@@ -95,10 +95,12 @@ public class ConfigurarObsequio extends JDialog implements ActionListener {
 		dispose();
 	}
 	
-	int leerMin(JTextField txt) {
+	// MÉTODOS CON RETORNO
+	// Lectura de caja de texto de cantidad para obsequiar
+	int leerMinimo(JTextField txt) {
 		return Integer.parseInt(txt.getText());
 	}
-	
+	// Lectura de caja de texto de obsequio a dar
 	String leerObsequio(JTextField txt) {
 		return txt.getText();
 	}

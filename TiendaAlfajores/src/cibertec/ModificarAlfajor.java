@@ -77,7 +77,7 @@ public class ModificarAlfajor extends JDialog implements ActionListener {
 		{
 			cboLista = new JComboBox <String>();
 			cboLista.addActionListener(this);
-			cboLista.setModel(new DefaultComboBoxModel(new String[] {"Alfajor", "Delicia", "Vimar", "Turok", "Havanna"}));
+			cboLista.setModel(new DefaultComboBoxModel(new String[] {"Alfano", "Delicia", "Vimar", "Turok", "Havanna"}));
 			cboLista.setBounds(113, 8, 104, 20);
 			contentPanel.add(cboLista);
 		}
@@ -132,38 +132,7 @@ public class ModificarAlfajor extends JDialog implements ActionListener {
 	}
 	protected void actionPerformedCboLista(ActionEvent arg0) {
 		int codigo = cboLista.getSelectedIndex();
-		switch(codigo) {
-			case 0:
-				txtPrecio.setText(Tienda.precio0 + "");
-				txtContenido.setText(Tienda.contenido0 + "");
-				txtPeso.setText(Tienda.peso0 + "");
-				txtSabor.setText(Tienda.sabor0);
-				break;
-			case 1:
-				txtPrecio.setText(Tienda.precio1 + "");
-				txtContenido.setText(Tienda.contenido1 + "");
-				txtPeso.setText(Tienda.peso1 + "");
-				txtSabor.setText(Tienda.sabor1);
-				break;
-			case 2:
-				txtPrecio.setText(Tienda.precio2 + "");
-				txtContenido.setText(Tienda.contenido2 + "");
-				txtPeso.setText(Tienda.peso2 + "");
-				txtSabor.setText(Tienda.sabor2);
-				break;
-			case 3:
-				txtPrecio.setText(Tienda.precio3 + "");
-				txtContenido.setText(Tienda.contenido3 + "");
-				txtPeso.setText(Tienda.peso3 + "");
-				txtSabor.setText(Tienda.sabor3);
-				break;
-			default:
-				txtPrecio.setText(Tienda.precio4+ "");
-				txtContenido.setText(Tienda.contenido4 + "");
-				txtPeso.setText(Tienda.peso4 + "");
-				txtSabor.setText(Tienda.sabor4);
-				break;
-		}
+		asignarDatosCombo(codigo);
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
 		dispose();
@@ -172,7 +141,6 @@ public class ModificarAlfajor extends JDialog implements ActionListener {
 		int codigo = cboLista.getSelectedIndex(), contenido = leerInt(txtContenido);
 		double precio = leerDouble(txtPrecio), peso = leerDouble(txtPrecio);
 		String sabor = leerString(txtSabor);
-		
 		switch(codigo) {
 			case 0:
 				Tienda.precio0 = precio;
@@ -207,7 +175,43 @@ public class ModificarAlfajor extends JDialog implements ActionListener {
 		}
 	}
 	
-	//Métodos parámetro y retorno
+	// MÉTODOS SIN RETORNO
+	void asignarDatosCombo(int cod) {
+		switch(cod) {
+			case 0:
+				txtPrecio.setText(Tienda.precio0 + "");
+				txtContenido.setText(Tienda.contenido0 + "");
+				txtPeso.setText(Tienda.peso0 + "");
+				txtSabor.setText(Tienda.sabor0);
+				break;
+			case 1:
+				txtPrecio.setText(Tienda.precio1 + "");
+				txtContenido.setText(Tienda.contenido1 + "");
+				txtPeso.setText(Tienda.peso1 + "");
+				txtSabor.setText(Tienda.sabor1);
+				break;
+			case 2:
+				txtPrecio.setText(Tienda.precio2 + "");
+				txtContenido.setText(Tienda.contenido2 + "");
+				txtPeso.setText(Tienda.peso2 + "");
+				txtSabor.setText(Tienda.sabor2);
+				break;
+			case 3:
+				txtPrecio.setText(Tienda.precio3 + "");
+				txtContenido.setText(Tienda.contenido3 + "");
+				txtPeso.setText(Tienda.peso3 + "");
+				txtSabor.setText(Tienda.sabor3);
+				break;
+			default:
+				txtPrecio.setText(Tienda.precio4+ "");
+				txtContenido.setText(Tienda.contenido4 + "");
+				txtPeso.setText(Tienda.peso4 + "");
+				txtSabor.setText(Tienda.sabor4);
+				break;
+		}
+	}
+	
+	// MÉTODOS CON RETORNO
 	int leerInt(JTextField txt) {
 		return Integer.parseInt(txt.getText());
 	}

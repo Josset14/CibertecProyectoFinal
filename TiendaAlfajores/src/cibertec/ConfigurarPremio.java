@@ -90,11 +90,12 @@ public class ConfigurarPremio extends JDialog implements ActionListener {
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
 		dispose();
 	}
-	
+	// MÉTODO CON RETORNO DE DATO
+	// Lectura de número de cliente
 	int leerNCliente(JTextField txt) {
 		return Integer.parseInt(txt.getText());
 	}
-	
+	//Lectura de premio sorpresa
 	String leerPremio(JTextField txt) {
 		return txt.getText();
 	}

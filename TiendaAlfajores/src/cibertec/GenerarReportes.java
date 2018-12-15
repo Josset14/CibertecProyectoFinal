@@ -80,7 +80,18 @@ public class GenerarReportes extends JDialog implements ActionListener {
 	protected void actionPerformedCboTipoDeReporte(ActionEvent e) {
 		txtS.setText("");
 		int posTipo = cboTipoDeReporte.getSelectedIndex();
-		switch(posTipo) {
+		asignarPosSwitch(posTipo);
+		
+	}
+	// MÉTODOS SIN RETORNO DE DATO
+	// Método imprimir
+	void imprimir(String s){
+		txtS.append(s + "\n");
+	}
+	
+	// Métodos llamados por el switch
+	void asignarPosSwitch(int pos){
+		switch(pos) {
 			case 0:
 				ventaPorMarca();
 				break;
@@ -94,10 +105,6 @@ public class GenerarReportes extends JDialog implements ActionListener {
 				precioMayorMenor();
 				break;
 		}
-	}
-	
-	void imprimir(String s){
-		txtS.append(s + "\n");
 	}
 	
 	void ventaPorMarca() {
@@ -211,10 +218,6 @@ public class GenerarReportes extends JDialog implements ActionListener {
 		imprimir("");
 	}
 	
-	double promedioPrecios() {
-		return (Tienda.precio0 + Tienda.precio1 + Tienda.precio2 + Tienda.precio3 + Tienda.precio4)/5;
-	}
-	
 	void precioMayorMenor() {
 		double promedio = promedioPrecios(), menor, mayor;
 		
@@ -243,8 +246,12 @@ public class GenerarReportes extends JDialog implements ActionListener {
 		imprimir("");
 		imprimir("Precio promedio: " + promedio);
 		imprimir("Precio menor: " + menor);
-		imprimir("Precio mayor: " + mayor);
-		
+		imprimir("Precio mayor: " + mayor);	
+	}
+	
+	// MÉTODOS CON RETORNO DE DATO
+	double promedioPrecios() {
+		return (Tienda.precio0 + Tienda.precio1 + Tienda.precio2 + Tienda.precio3 + Tienda.precio4)/5;
 	}
 	
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
