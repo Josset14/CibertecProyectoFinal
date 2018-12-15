@@ -46,25 +46,25 @@ public class GenerarReportes extends JDialog implements ActionListener {
 		getContentPane().setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 73, 744, 265);
+		scrollPane.setBounds(10, 73, 760, 265);
 		getContentPane().add(scrollPane);
 		
 		txtS = new JTextArea();
 		scrollPane.setViewportView(txtS);
 		
 		lblTipoDeReporte = new JLabel("Tipo de reporte");
-		lblTipoDeReporte.setBounds(10, 24, 121, 14);
+		lblTipoDeReporte.setBounds(10, 24, 89, 16);
 		getContentPane().add(lblTipoDeReporte);
 		
 		cboTipoDeReporte = new JComboBox();
 		cboTipoDeReporte.addActionListener(this);
 		cboTipoDeReporte.setModel(new DefaultComboBoxModel(new String[] {"Ventas por marca", "Marcas con venta \u00F3ptima", "Precios en relaci\u00F3n al promedio", "Precio promedio, mayor y menor"}));
-		cboTipoDeReporte.setBounds(136, 21, 440, 20);
+		cboTipoDeReporte.setBounds(123, 22, 372, 20);
 		getContentPane().add(cboTipoDeReporte);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(646, 20, 89, 23);
+		btnCerrar.setBounds(681, 21, 89, 23);
 		getContentPane().add(btnCerrar);
 
 	}

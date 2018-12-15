@@ -46,20 +46,20 @@ public class ConfigurarPremio extends JDialog implements ActionListener {
 		getContentPane().setLayout(null);
 		
 		lblNmeroDeCliente = new JLabel("N\u00FAmero de cliente");
-		lblNmeroDeCliente.setBounds(10, 11, 140, 14);
+		lblNmeroDeCliente.setBounds(10, 11, 104, 16);
 		getContentPane().add(lblNmeroDeCliente);
 		
 		lblPremioSorpresa = new JLabel("Premio sorpresa");
-		lblPremioSorpresa.setBounds(10, 39, 140, 14);
+		lblPremioSorpresa.setBounds(10, 39, 94, 16);
 		getContentPane().add(lblPremioSorpresa);
 		
 		txtNumeroCliente = new JTextField();
-		txtNumeroCliente.setBounds(162, 8, 86, 20);
+		txtNumeroCliente.setBounds(126, 9, 86, 20);
 		getContentPane().add(txtNumeroCliente);
 		txtNumeroCliente.setColumns(10);
 		
 		txtPremio = new JTextField();
-		txtPremio.setBounds(162, 36, 86, 20);
+		txtPremio.setBounds(126, 37, 86, 20);
 		getContentPane().add(txtPremio);
 		txtPremio.setColumns(10);
 		
@@ -82,20 +82,20 @@ public class ConfigurarPremio extends JDialog implements ActionListener {
 			actionPerformedBtnAceptar(e);
 		}
 	}
-	
-	int leerInt(JTextField txt) {
-		return Integer.parseInt(txt.getText());
-	}
-	
-	String leerString(JTextField txt) {
-		return txt.getText();
-	}
-	
+		
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		Tienda.numeroClienteSorpresa = leerInt(txtNumeroCliente);
-		Tienda.premioSorpresa = leerString(txtPremio);
+		Tienda.numeroClienteSorpresa = leerNCliente(txtNumeroCliente);
+		Tienda.premioSorpresa = leerPremio(txtPremio);
 	}
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
 		dispose();
+	}
+	
+	int leerNCliente(JTextField txt) {
+		return Integer.parseInt(txt.getText());
+	}
+	
+	String leerPremio(JTextField txt) {
+		return txt.getText();
 	}
 }

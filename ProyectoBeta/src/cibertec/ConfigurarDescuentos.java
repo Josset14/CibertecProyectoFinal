@@ -49,48 +49,48 @@ public class ConfigurarDescuentos extends JDialog implements ActionListener {
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(this);
-		btnAceptar.setBounds(323, 11, 89, 23);
+		btnAceptar.setBounds(331, 12, 89, 23);
 		getContentPane().add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(this);
-		btnCancelar.setBounds(323, 45, 89, 23);
+		btnCancelar.setBounds(331, 42, 89, 23);
 		getContentPane().add(btnCancelar);
 		
 		lblDescuento1 = new JLabel("1 a 5 cajas");
-		lblDescuento1.setBounds(10, 15, 89, 14);
+		lblDescuento1.setBounds(10, 15, 63, 16);
 		getContentPane().add(lblDescuento1);
 		
 		lblDescuento2 = new JLabel("6 a 10 cajas");
-		lblDescuento2.setBounds(10, 49, 89, 14);
+		lblDescuento2.setBounds(10, 49, 70, 16);
 		getContentPane().add(lblDescuento2);
 		
 		lblDescuento3 = new JLabel("11 a 15 cajas");
-		lblDescuento3.setBounds(10, 79, 89, 14);
+		lblDescuento3.setBounds(10, 85, 77, 16);
 		getContentPane().add(lblDescuento3);
 		
 		lblDescuento4 = new JLabel("Mas de 15 cajas ");
-		lblDescuento4.setBounds(10, 114, 89, 14);
+		lblDescuento4.setBounds(10, 117, 97, 16);
 		getContentPane().add(lblDescuento4);
 		
 		txtDescuento1 = new JTextField(Tienda.porcentaje1 + "");
-		txtDescuento1.setBounds(109, 11, 86, 22);
+		txtDescuento1.setBounds(119, 11, 86, 22);
 		getContentPane().add(txtDescuento1);
 		txtDescuento1.setColumns(10);
 		
 		txtDescuento2 = new JTextField(Tienda.porcentaje2 + "");
 		txtDescuento2.setColumns(10);
-		txtDescuento2.setBounds(109, 45, 86, 22);
+		txtDescuento2.setBounds(119, 45, 86, 22);
 		getContentPane().add(txtDescuento2);
 		
 		txtDescuento3 = new JTextField(Tienda.porcentaje3 + "");
 		txtDescuento3.setColumns(10);
-		txtDescuento3.setBounds(109, 77, 86, 22);
+		txtDescuento3.setBounds(119, 79, 86, 22);
 		getContentPane().add(txtDescuento3);
 		
 		txtDescuento4 = new JTextField(Tienda.porcentaje4 + "");
 		txtDescuento4.setColumns(10);
-		txtDescuento4.setBounds(109, 110, 86, 22);
+		txtDescuento4.setBounds(119, 114, 86, 22);
 		getContentPane().add(txtDescuento4);
 
 	}

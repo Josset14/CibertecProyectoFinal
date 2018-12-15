@@ -253,72 +253,64 @@ public class Tienda extends JFrame implements ActionListener {
 	}
 	
 	protected void actionPerformedMntmConsultarAlfajor(ActionEvent arg0) {
-		ConsultarAlfajor dc = new ConsultarAlfajor();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		ConsultarAlfajor ca = new ConsultarAlfajor();
+		ca.setLocationRelativeTo(this);
+		ca.setVisible(true);
 	}
 	
 	protected void actionPerformedMntmModificarAlfajor(ActionEvent arg0) {
-		ModificarAlfajor dc = new ModificarAlfajor();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		ModificarAlfajor ma = new ModificarAlfajor();
+		ma.setLocationRelativeTo(this);
+		ma.setVisible(true);
 	}
 	
 	protected void actionPerformedMntmVender(ActionEvent arg0) {
-		Vender dc = new Vender();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		Vender va = new Vender();
+		va.setLocationRelativeTo(this);
+		va.setVisible(true);
 	}
 	
 	protected void actionPerformedMntmGenerarReportes(ActionEvent arg0) {
-		GenerarReportes dc = new GenerarReportes();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		GenerarReportes gr = new GenerarReportes();
+		gr.setLocationRelativeTo(this);
+		gr.setVisible(true);
 	}
 	
 
 	protected void actionPerformedMntmConfigurarDescuentos(ActionEvent arg0) {
-		ConfigurarDescuentos dc = new ConfigurarDescuentos();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		ConfigurarDescuentos cd = new ConfigurarDescuentos();
+		cd.setLocationRelativeTo(this);
+		cd.setVisible(true);
 	}
 	
-	protected void actionPerformedMntmConfigurarObsequio(ActionEvent arg0) {
-		ConfigurarObsequio dc = new ConfigurarObsequio();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
-	}
-	
-
 	protected void actionPerformedMntmConfigurarCantidadOptima(ActionEvent arg0) {
-		ConfigurarCantidadOptima dc = new ConfigurarCantidadOptima();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		ConfigurarCantidadOptima cco = new ConfigurarCantidadOptima();
+		cco.setLocationRelativeTo(this);
+		cco.setVisible(true);
 	}
-	
 	
 	protected void actionPerformedMntmConfigurarPremioSorpresa(ActionEvent arg0) {
-		ConfigurarPremio dc = new ConfigurarPremio();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		ConfigurarPremio cp = new ConfigurarPremio();
+		cp.setLocationRelativeTo(this);
+		cp.setVisible(true);
 	}
 	
 	protected void actionPerformedMntmConfigurarObsequios(ActionEvent arg0) {
-		ConfigurarObsequio dc = new ConfigurarObsequio();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		ConfigurarObsequio co = new ConfigurarObsequio();
+		co.setLocationRelativeTo(this);
+		co.setVisible(true);
 	}
 	
 	protected void actionPerformedMntmAcercaDeTienda(ActionEvent arg0) {
-		AcercaTienda dc = new AcercaTienda();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		AcercaTienda ac = new AcercaTienda();
+		ac.setLocationRelativeTo(this);
+		ac.setVisible(true);
 	}
 	
 	protected void actionPerformedMntmListarAlfajores(ActionEvent arg0) {
-		ListarAlfajor dc = new ListarAlfajor();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
+		ListarAlfajor la = new ListarAlfajor();
+		la.setLocationRelativeTo(this);
+		la.setVisible(true);
 		
 	}
 }

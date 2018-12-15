@@ -52,38 +52,38 @@ public class AcercaTienda extends JDialog implements ActionListener {
 		contentPanel.setLayout(null);
 		
 		lblTienda1 = new JLabel("Tienda 1.0");
-		lblTienda1.setBounds(174, 11, 115, 63);
+		lblTienda1.setBounds(163, 29, 106, 25);
 		lblTienda1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		contentPanel.add(lblTienda1);
 		
 		separator = new JSeparator();
-		separator.setBounds(10, 85, 414, 8);
+		separator.setBounds(9, 71, 414, 8);
 		contentPanel.add(separator);
 		
 		lblAutores = new JLabel("Autores");
-		lblAutores.setBounds(191, 101, 62, 17);
+		lblAutores.setBounds(192, 92, 53, 16);
 		lblAutores.setFont(new Font("Tahoma", Font.BOLD, 13));
 		contentPanel.add(lblAutores);
 		
 		lblChipaValenciaAldhair = new JLabel("Chipa Valencia, Aldhair");
-		lblChipaValenciaAldhair.setBounds(157, 129, 132, 14);
+		lblChipaValenciaAldhair.setBounds(150, 121, 132, 16);
 		contentPanel.add(lblChipaValenciaAldhair);
 		
 		lblGutirrezHuamnJosset = new JLabel("Guti\u00E9rrez Huam\u00E1n, Josset");
-		lblGutirrezHuamnJosset.setBounds(157, 146, 132, 14);
+		lblGutirrezHuamnJosset.setBounds(143, 138, 146, 16);
 		contentPanel.add(lblGutirrezHuamnJosset);
 		
 		lblOrMallccoRichard = new JLabel("Or\u00E9 Mallcco, Richard");
-		lblOrMallccoRichard.setBounds(157, 163, 132, 14);
+		lblOrMallccoRichard.setBounds(157, 155, 118, 16);
 		contentPanel.add(lblOrMallccoRichard);
 		
 		lblVivancoGallardoAndr = new JLabel("Vivanco Gallardo, Andr\u00E9");
-		lblVivancoGallardoAndr.setBounds(157, 179, 132, 14);
+		lblVivancoGallardoAndr.setBounds(147, 171, 137, 16);
 		contentPanel.add(lblVivancoGallardoAndr);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(174, 213, 89, 23);
+		btnCerrar.setBounds(171, 213, 89, 23);
 		contentPanel.add(btnCerrar);
 	}
 	public void actionPerformed(ActionEvent arg0) {

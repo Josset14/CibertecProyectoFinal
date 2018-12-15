@@ -2,6 +2,7 @@ P_APPLY_IN_MAIN=true
 P_DISPLAY_LOCATION_SIZE_HINTS=false
 codeGeneration.variableId=org.eclipse.wb.core.model.variable.fieldUnique
 eclipse.preferences.version=1
+org.eclipse.wb.core.model.property.PropertyManager=rO0ABXNyABFqYXZhLnV0aWwuVHJlZU1hcAzB9j4tJWrmAwABTAAKY29tcGFyYXRvcnQAFkxqYXZhL3V0aWwvQ29tcGFyYXRvcjt4cHB3BAAAAAF0AAl0YWIgb3JkZXJzcgARamF2YS5sYW5nLkludGVnZXIS4qCk94GHOAIAAUkABXZhbHVleHIAEGphdmEubGFuZy5OdW1iZXKGrJUdC5TgiwIAAHhwAAAAAXg\=
 property.events.codeType=2
 property.events.stubCreate=true
 stubName=${event_name}${Component_name}

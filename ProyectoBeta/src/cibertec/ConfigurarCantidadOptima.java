@@ -41,12 +41,12 @@ public class ConfigurarCantidadOptima extends JDialog implements ActionListener 
 		setBounds(100, 100, 450, 200);
 		getContentPane().setLayout(null);
 		
-		lblCantidadOptima = new JLabel("Cantidad \u00F3ptima de cajas vendidas");
-		lblCantidadOptima.setBounds(10, 11, 181, 14);
+		lblCantidadOptima = new JLabel("Cantidad \u00F3ptima de cajas vendidas:");
+		lblCantidadOptima.setBounds(10, 11, 204, 16);
 		getContentPane().add(lblCantidadOptima);
 		
 		txtCantidadOptima = new JTextField(Tienda.cantidadOptima + "");
-		txtCantidadOptima.setBounds(201, 8, 86, 20);
+		txtCantidadOptima.setBounds(226, 9, 86, 20);
 		getContentPane().add(txtCantidadOptima);
 		txtCantidadOptima.setColumns(10);
 		
@@ -73,9 +73,9 @@ public class ConfigurarCantidadOptima extends JDialog implements ActionListener 
 		dispose();
 	}
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
-		Tienda.cantidadOptima = leerCantidad(txtCantidadOptima); 
+		Tienda.cantidadOptima = leerCantOptima(txtCantidadOptima); 
 	}
-	int leerCantidad(JTextField txt) {
+	int leerCantOptima(JTextField txt) {
 		return Integer.parseInt(txt.getText());
 	}
 }

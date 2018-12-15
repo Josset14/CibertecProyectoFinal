@@ -73,27 +73,27 @@ public class Vender extends JDialog implements ActionListener {
 		contentPanel.setLayout(null);
 		
 		lblMarca = new JLabel("Marca");
-		lblMarca.setBounds(21, 21, 59, 14);
+		lblMarca.setBounds(12, 21, 59, 14);
 		contentPanel.add(lblMarca);
 		{
 			JLabel lblPrecio = new JLabel("Precio (S/)");
-			lblPrecio.setBounds(21, 60, 77, 14);
+			lblPrecio.setBounds(12, 48, 77, 14);
 			contentPanel.add(lblPrecio);
 		}
 		{
 			JLabel lblCantidad = new JLabel("Cantidad");
-			lblCantidad.setBounds(21, 99, 77, 14);
+			lblCantidad.setBounds(12, 75, 77, 14);
 			contentPanel.add(lblCantidad);
 		}
 		
 		txtCantidad = new JTextField();
-		txtCantidad.setBounds(121, 96, 86, 20);
+		txtCantidad.setBounds(121, 72, 86, 20);
 		contentPanel.add(txtCantidad);
 		txtCantidad.setColumns(10);
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setEditable(false);
-		txtPrecio.setBounds(121, 57, 86, 20);
+		txtPrecio.setBounds(121, 45, 86, 20);
 		contentPanel.add(txtPrecio);
 		txtPrecio.setColumns(10);
 		
@@ -111,12 +111,12 @@ public class Vender extends JDialog implements ActionListener {
 		{
 			btnCerrar = new JButton("Cerrar");
 			btnCerrar.addActionListener(this);
-			btnCerrar.setBounds(638, 56, 111, 23);
+			btnCerrar.setBounds(638, 44, 111, 23);
 			contentPanel.add(btnCerrar);
 		}
 		{
 			JScrollPane scrollPane = new JScrollPane();
-			scrollPane.setBounds(21, 136, 728, 200);
+			scrollPane.setBounds(12, 136, 758, 200);
 			contentPanel.add(scrollPane);
 			
 			txtS = new JTextArea();

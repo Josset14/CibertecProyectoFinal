@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
 
 public class ConfigurarObsequio extends JDialog implements ActionListener {
 	private JLabel lblMinimoCajas;
@@ -45,33 +47,34 @@ public class ConfigurarObsequio extends JDialog implements ActionListener {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		
-		lblMinimoCajas = new JLabel("Cantidad Minima de Cajas Adquiridas");
-		lblMinimoCajas.setBounds(10, 26, 213, 14);
+		lblMinimoCajas = new JLabel("Cantidad m\u00EDnima de cajas adquiridas");
+		lblMinimoCajas.setBounds(10, 13, 211, 16);
 		getContentPane().add(lblMinimoCajas);
 		
 		lblObsequio = new JLabel("Obsequio");
-		lblObsequio.setBounds(10, 51, 213, 14);
+		lblObsequio.setBounds(10, 39, 53, 16);
 		getContentPane().add(lblObsequio);
 		
 		txtMinimoCajas = new JTextField();
-		txtMinimoCajas.setBounds(235, 23, 86, 20);
+		txtMinimoCajas.setBounds(235, 11, 86, 20);
 		getContentPane().add(txtMinimoCajas);
 		txtMinimoCajas.setColumns(10);
 		
 		txtObsequio = new JTextField();
 		txtObsequio.setColumns(10);
-		txtObsequio.setBounds(235, 48, 86, 20);
+		txtObsequio.setBounds(235, 37, 86, 20);
 		getContentPane().add(txtObsequio);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(this);
-		btnAceptar.setBounds(333, 22, 89, 23);
+		btnAceptar.setBounds(333, 10, 89, 23);
 		getContentPane().add(btnAceptar);
 		
 		button = new JButton("Cancelar");
 		button.addActionListener(this);
-		button.setBounds(333, 47, 89, 23);
+		button.setBounds(333, 36, 89, 23);
 		getContentPane().add(button);
+		getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{txtMinimoCajas, txtObsequio, btnAceptar, button}));
 
 	}
 
